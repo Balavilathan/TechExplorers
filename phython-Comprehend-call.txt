@@ -1,0 +1,28 @@
+before call we may need to install boto3 
+using command
+
+!pip install boto3 
+=-=-=-=
+Below is the logic calls comprehend
+=-=-=--=
+
+import boto3
+
+# Initialize a session using Amazon Comprehend
+session = boto3.Session(
+    aws_access_key_id='AKIA3VECIIQUE2JN3UJ6',
+    aws_secret_access_key='',  # real secret_access_key has to be updated here
+    region_name='ap-south-1'
+)
+
+# Create a Comprehend client
+comprehend_client = session.client('comprehend')
+
+# Example text to analyze
+feedback_text = "you are ver nice person , Thank you!"
+
+# Detect the dominant language
+#response = comprehend_client.batch_detect_sentiment(Text=text,'en')
+response = comprehend_client.detect_sentiment(Text=feedback_text, LanguageCode='en')
+
+print(response)
