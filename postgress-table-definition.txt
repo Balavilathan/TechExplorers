@@ -1,0 +1,20 @@
+-- Table: public.fintech_feedback
+ 
+-- DROP TABLE IF EXISTS public.fintech_feedback;
+ 
+CREATE TABLE IF NOT EXISTS public.fintech_feedback
+(
+    id integer NOT NULL DEFAULT nextval('fintech_feedback_id_seq'::regclass),
+    user_id character varying(50) COLLATE pg_catalog."default",
+    feedback text COLLATE pg_catalog."default",
+    rating integer,
+    feedback_timestamp timestamp without time zone,
+    location character varying(100) COLLATE pg_catalog."default",
+    contact character varying(100) COLLATE pg_catalog."default",
+    CONSTRAINT fintech_feedback_pkey PRIMARY KEY (id)
+)
+ 
+TABLESPACE pg_default;
+ 
+ALTER TABLE IF EXISTS public.fintech_feedback
+    OWNER to postgres;
